@@ -20,7 +20,9 @@ module.exports = function(doc, initialCss) {
         if (style.styleSheet) {
             style.styleSheet.cssText = css;
         } else {
-            style.removeChild(style.firstChild);
+            while (style.childNodes.length) {
+                style.removeChild(style.firstChild);
+            }
             style.appendChild(doc.createTextNode(css));
         }
     }
