@@ -22,6 +22,9 @@ Use Browserify.
     // access the actual <style> element itself
     console.log(setter.el);
 
+    // destroy the stylesheet
+    setter.destroy();
+
 ## License
 
 MIT.

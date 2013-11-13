@@ -28,6 +28,9 @@ module.exports = function(doc, initialCss) {
     set(initialCss || '');
 
     set.el = style;
+    set.destroy = function() {
+        head.removeChild(style);
+    }
 
     return set;
 
