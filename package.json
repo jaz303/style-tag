@@ -1,6 +1,6 @@
 {
   "name": "style-tag",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Programatically create <style> elements in the browser",
   "main": "index.js",
   "scripts": {
