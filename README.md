@@ -1,6 +1,6 @@
 # style-tag
 
-Create `&lt;style&gt;` elements dynamically in the browser.
+Create `<style>` elements dynamically in the browser.
 
 ## Install
 
