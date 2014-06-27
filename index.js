@@ -1,22 +1,25 @@
-// adapted from
-// http://stackoverflow.com/questions/524696/how-to-create-a-style-tag-with-javascript
-module.exports = function(doc, initialCss) {
-    
-    if (typeof doc === 'string') {
-        initialCss = doc;
-        doc = null;
+module.exports = function(initialCss, options) {
+
+    if (typeof initialCss === 'object') {
+        options = initialCss;
+        initialCss = '';
     }
 
-    doc = doc || document;
-
-    var head    = doc.getElementsByTagName('head')[0],
+    options = options || {};
+    
+    var doc     = options.document || document,
+        head    = doc.getElementsByTagName('head')[0],
         style   = doc.createElement('style');
 
     style.type = 'text/css';
-    head.appendChild(style);
 
+    if (options.prepend) {
+        head.insertBefore(style, head.childNodes[0]);
+    } else {
+        head.appendChild(style);    
+    }
+    
     function set(css) {
-        css = '' + (css || '');
         if (style.styleSheet) {
             style.styleSheet.cssText = css;
         } else {
@@ -29,11 +32,11 @@ module.exports = function(doc, initialCss) {
 
     set(initialCss || '');
 
-    set.el = style;
-    set.destroy = function() {
+    style.set = set;
+    style.destroy = function() {
         head.removeChild(style);
     }
 
-    return set;
+    return style;
 
 }
