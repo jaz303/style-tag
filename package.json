@@ -15,5 +15,8 @@
     "css"
   ],
   "author": "Jason Frame <jason@onehackoranother.com> (http://jasonframe.co.uk)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "uglify-js": "~2.4.14"
+  }
 }
