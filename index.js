@@ -35,6 +35,7 @@ module.exports = function(initialCss, options) {
     style.set = set;
     style.destroy = function() {
         head.removeChild(style);
+        style = null;
     }
 
     return style;
